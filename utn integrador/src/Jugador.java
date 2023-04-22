@@ -41,7 +41,8 @@ public class Jugador {
 
     public void elegirEquipo(List<Equipo> listaEquipos){
 
-        String listaEquiposMensaje ="Equipos: \n";
+        String listaEquiposMensaje ="“En el juego, el pecado mortal es confundir una mala jugada con mala suerte.»\n" +
+                "– Ian Fleming, escritor inglés creador de James Bond \n" +"Equipos: ☺ \n";
         for (int i = 0; i < listaEquipos.size() ; i++) {
             listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
         }
@@ -55,10 +56,10 @@ public class Jugador {
                         "Seleccion del equipo del usuario", JOptionPane.INFORMATION_MESSAGE)) -1;
                 valido = true;
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Por favor ingrese un número entero válido.", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un número entero válido del indice de la lista de equipos ❤", "ERROR MSJ", JOptionPane.ERROR_MESSAGE);
             }
         } while (!valido || indiceEquipo < 0 || indiceEquipo >= listaEquipos.size());
-        JOptionPane.showMessageDialog(null,"seleccionaste a: " + listaEquipos.get(indiceEquipo).getNombre());
+        JOptionPane.showMessageDialog(null,"Seleccionaste a: " + listaEquipos.get(indiceEquipo).getNombre());
         this.equipoSeleccionado = listaEquipos.get(indiceEquipo);
     }
 

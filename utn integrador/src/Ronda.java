@@ -105,8 +105,9 @@ public class Ronda {
         Partido partido = new Partido();
         Equipo equipo = partido.simularPartido(llaveDerecha.getEquiposListaLlave().get(0),
                 llaveIzquierda.getEquiposListaLlave().get(0));
-        JOptionPane.showMessageDialog(null,"El ganador del torneo es: " +
-                equipo.getNombre(),"Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null,"“Lo única que puedes saber sobre la suerte es que, tarde o temprano, cambia.»\n" +
+                "– Bret Harte, autor estadounidense \n"+
+                "El ganador del torneo es: " + equipo.getNombre(),"Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
     }
 
 

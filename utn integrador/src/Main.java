@@ -11,24 +11,27 @@ public class Main {
         do {
             try {
                 int option = Integer.parseInt(JOptionPane.showInputDialog(null,
-                        "Option 1: Iniciar pronostico" + "\n " +
-                                "Option 2: Salir",
-                        "Menu Pronosticador deportivo 2023 - Argentina programa 4.0 - UTN Java", JOptionPane.INFORMATION_MESSAGE));
+                        "Somos lo que fuimos, y de nada sirve apostar por el futuro si no hemos echado cuentas con nuestro pasado. \n"+
+                                "“Suerte es lo que sucede cuando la preparación y la oportunidad se encuentran.»\n" +
+                                "– Séneca, filósofo romano"+
+                                "\n " +"Option 1: Iniciar pronostico"
+                                + "\n " + "Option 2: Salir",
+                        "Menu Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE));
                 switch(option){
                     case 1:
                         // CREO LA LISTA DE EQUIPOS
                         List<Equipo> listaEquipos = new ArrayList<>();
                         // LLENO LA LISTA DE EQUIPOS CON SUS EQUIPOS
                         //LLAVE DERECHA
-                        listaEquipos.add(new Equipo("Uruguay "));
-                        listaEquipos.add(new Equipo("Venezuela "));
-                        listaEquipos.add(new Equipo("Francia "));
-                        listaEquipos.add(new Equipo("Portugal "));
+                        listaEquipos.add(new Equipo("Uruguay ヅ "));
+                        listaEquipos.add(new Equipo("Venezuela ヅ "));
+                        listaEquipos.add(new Equipo("Francia ヅ "));
+                        listaEquipos.add(new Equipo("Portugal ヅ "));
                         // LLAVE IZQUIERDA
-                        listaEquipos.add(new Equipo("Brasil "));
-                        listaEquipos.add(new Equipo("Mexico "));
-                        listaEquipos.add(new Equipo("Alemania "));
-                        listaEquipos.add(new Equipo("Argentina "));
+                        listaEquipos.add(new Equipo("Brasil ヅ "));
+                        listaEquipos.add(new Equipo("Mexico ヅ "));
+                        listaEquipos.add(new Equipo("Alemania ヅ "));
+                        listaEquipos.add(new Equipo("Argentina ヅ "));
 
                         // LLAMO AL OBJETO JUGADOR Y AL METODO ELEGIR EQUIPO Y LE CARGO LA LISTA DE EQUIPOS ANTERIORMENTE CREADA.
                         Jugador jugador = new Jugador();
@@ -55,8 +58,11 @@ public class Main {
                         ronda.finalTorneo(llaveIzquierda,llaveDerecha);
                         jugador.sumarPuntos();
                         // AL FINAL DEJO UN MSJ QUE DICE EL PUNTAJE DEL EQUIPO SELECCIONADO
-                        JOptionPane.showMessageDialog(null,"Has conseguido " + jugador.getPuntaje()
-                                        + " por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre()," Nombre",
+                        JOptionPane.showMessageDialog(null,"“En el juego, muchos deben perder para que pocos ganen.»\n" +
+                                        "– George Bernard Shaw, dramaturgo irlandés \n"+
+                                        "Muchas gracias por ocupar el pronosticador deportivo \n "+
+                                        "Has conseguido " + jugador.getPuntaje()
+                                        + " puntos, por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
                                 JOptionPane.INFORMATION_MESSAGE);
 
                         break;
@@ -67,11 +73,11 @@ public class Main {
                         break;
                     }
                     default:
-                        JOptionPane.showMessageDialog(null, "Elija solo valores del indice, vuelva pronto","ERROR MSJ",JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Elija solo valores numericos del indice del menu ❤","ERROR MSJ",JOptionPane.ERROR_MESSAGE);
                         break;
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico","ERROR MSJ",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Debe ingresar un valor numerico del indice del menu ❤","ERROR MSJ",JOptionPane.ERROR_MESSAGE);
             }
 
         }while (bucleFin != 2);
@@ -80,11 +86,11 @@ public class Main {
     }
     public static void mensajeTeam3(){
         JOptionPane.showMessageDialog(null, "Bienvenido al pronosticador deportivo 2023 - UTN Equipo 3" + "\n " +
-                "TEAM: Ezequiel Leon " + "\n " +
-                "TEAM: Nahuel Ezequiel Argandoña " + "\n " +
-                "TEAM: Matias Roberto" + "\n " +
-                "TEAM: Celeste Gimenez" + "\n " +
-                "TEAM: Santos Patricio augusto","Pronosticador deportivo 2023 - Argentina programa 4.0 - UTN Java", JOptionPane.INFORMATION_MESSAGE);
+                "TEAM 1: Ezequiel Leon  ☺" + "\n " +
+                "TEAM 2: Nahuel Ezequiel Argandoña ☺ " + "\n " +
+                "TEAM 3: Matias Roberto ☺ " + "\n " +
+                "TEAM 4: Celeste Gimenez ☺ " + "\n " +
+                "TEAM 5: Santos Patricio augusto ☺ ","Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE);
 
     }
 
