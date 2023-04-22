@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ronda {
@@ -50,6 +51,7 @@ public class Ronda {
     }
     // CREO SUS METODOS
     public void cuartosFinal(Llave llaveIzquierda, Llave llaveDerecha){
+
         //Seteo el num de rondas
         this.numRonda = 1;
         //Instancio un objeto partido para usar su metodo
@@ -63,6 +65,8 @@ public class Ronda {
                     llaveIzquierda.getEquiposListaLlave().get(i+1));
             partido.simularPartido(llaveDerecha.getEquiposListaLlave().get(i),
                     llaveDerecha.getEquiposListaLlave().get(i+1));
+
+
         }
         //Remuevo los equipos
         removerEquipos(llaveIzquierda.getEquiposListaLlave());
@@ -70,6 +74,8 @@ public class Ronda {
         //Setear la cantidad actual de equipos por llave
         this.cantEquiposLlave = 2;
     }
+
+
     public void removerEquipos(List<Equipo> equipos){
         int contEquiposLlaves = cantEquiposLlave;
         for (int i = 0; i < contEquiposLlaves ; i++) {
@@ -102,4 +108,6 @@ public class Ronda {
         JOptionPane.showMessageDialog(null,"El ganador del torneo es: " +
                 equipo.getNombre(),"Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
     }
+
+
 }

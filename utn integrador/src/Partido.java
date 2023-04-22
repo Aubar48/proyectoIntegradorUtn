@@ -1,9 +1,15 @@
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+import static java.lang.System.in;
+
 public class Partido {
     //CREO LOS ATRIBUTOS PRIVADOS Y LOS INICIALIZO CON UN NUMERO ENTERO RANDOM PARA SIMULAR LOS GOLES DE LOS EQUIPOS DURANTE EL PARTIDO.
-    private int golesEquipoLocal =  (int)(Math.random() * + 6);
+    private int golesEquipoLocal;
 
-    private int golesEquipoVisitante = (int)(Math.random() * + 6);
+    private int golesEquipoVisitante;
     // CREO SU CONSTRUCTOR VACIO
     public Partido() {
     }
@@ -31,65 +37,26 @@ public class Partido {
     // CREO SU TOSTRING QUE ES UN MSJ PARA MOSTRAR INFORMACION DE LOS ATRIBUTOS DE LA CLASE DE FORMA ORDENADA Y PUBLICO.
     @Override
     public String toString() {
-        return "Partido{" +
+        return "Partido" +
                 "golesEquipoLocal=" + golesEquipoLocal +
-                ", golesEquipoVisitante=" + golesEquipoVisitante +
-                '}';
+                "golesEquipoVisitante=" + golesEquipoVisitante;
     }
-    // CREO SUS METODOS
-//    public Equipo simularPartido(Equipo equipoLocal, Equipo equipoVisitante){
-//        //Muestra un msj con el resultado del partido
-//        JOptionPane.showMessageDialog(null,equipoLocal.getNombre()+ " " +
-//                        this.golesEquipoLocal+ " - " + this.golesEquipoVisitante + " " +
-//                        equipoVisitante.getNombre(), "Resultados del partido",JOptionPane.INFORMATION_MESSAGE);
-//        //Suma los goles de los equipos
-//        equipoLocal.sumarGolesNuevos(this.golesEquipoLocal);
-//        equipoVisitante.sumarGolesNuevos(this.golesEquipoVisitante);
-//        //Logica
-//        if (this.golesEquipoLocal>this.golesEquipoVisitante){
-//            equipoVisitante.setAutorizacion(false);
-//            equipoLocal.setResultadoPartido(Resultado.GANADOR);
-//            equipoVisitante.setResultadoPartido(Resultado.PERDEDOR);
-//            JOptionPane.showMessageDialog(null,"Ganador: " + equipoLocal.getNombre()
-//            , "Resultado", JOptionPane.INFORMATION_MESSAGE);
-//            return equipoLocal;
-//
-//        } else if (this.golesEquipoLocal==this.golesEquipoVisitante) {
-//            JOptionPane.showMessageDialog(null,"Se jugara el desempate entre "+
-//                    equipoLocal.getNombre() + " " + equipoVisitante.getNombre(),"Resultado",
-//                    JOptionPane.INFORMATION_MESSAGE);
-//            equipoLocal.setResultadoPartido(Resultado.EMPATE);
-//            equipoVisitante.setResultadoPartido(Resultado.EMPATE);
-//        simularPartido(equipoLocal,equipoVisitante);
-//        }else{
-//        equipoLocal.setAutorizacion(false);
-//        equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
-//        equipoVisitante.setResultadoPartido(Resultado.GANADOR);
-//            JOptionPane.showMessageDialog(null,"Ganador: " + equipoVisitante.getNombre()
-//                    , "Resultado", JOptionPane.INFORMATION_MESSAGE);
-//        return equipoVisitante;
-//        }
-//        return null;
-//    }
+
 
     public Equipo simularPartido(Equipo equipoLocal, Equipo equipoVisitante){
-        int maxIntentos = 3;
+        int maxIntentos = 5;
         int intentos = 0;
 
         do {
             // Generar goles aleatorios
-            this.golesEquipoLocal = (int) (Math.random() * 6);
-            this.golesEquipoVisitante = (int) (Math.random() * 6);
-
+            golesRandom();
             // Mostrar resultado del partido
             JOptionPane.showMessageDialog(null,equipoLocal.getNombre()+ " " +
                     this.golesEquipoLocal+ " - " + this.golesEquipoVisitante + " " +
-                    equipoVisitante.getNombre(), "Resultados del partido",JOptionPane.INFORMATION_MESSAGE);
-
+                    equipoVisitante.getNombre(), "Resultados del partido ",JOptionPane.INFORMATION_MESSAGE);
             //Sumar los goles de los equipos
             equipoLocal.sumarGolesNuevos(this.golesEquipoLocal);
             equipoVisitante.sumarGolesNuevos(this.golesEquipoVisitante);
-
             // Logica
             if (this.golesEquipoLocal > this.golesEquipoVisitante) {
                 equipoVisitante.setAutorizacion(false);
@@ -99,10 +66,10 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoLocal;
             } else if (this.golesEquipoLocal == this.golesEquipoVisitante) {
-                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate, se volverá a jugar.","Resultado",
+                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate, se jugara un nuevo partido para saber quien avanza. ","Resultado",
                         JOptionPane.INFORMATION_MESSAGE);
-                equipoLocal.setResultadoPartido(Resultado.EMPATE);
-                equipoVisitante.setResultadoPartido(Resultado.EMPATE);
+
+
             } else {
                 equipoLocal.setAutorizacion(false);
                 equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
@@ -111,14 +78,27 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoVisitante;
             }
+            if (golesEquipoLocal == golesEquipoVisitante){
 
+            }
             intentos++;
         } while (intentos < maxIntentos);
-
-        JOptionPane.showMessageDialog(null,"No se ha podido determinar un ganador después de " + maxIntentos + " intentos.","Resultado",
+        JOptionPane.showMessageDialog(null,"No se ha podido determinar un ganador después de " + maxIntentos + " intentos. ","Resultado",
                 JOptionPane.INFORMATION_MESSAGE);
         return null;
+
     }
+    public void golesRandom(){
+        this.golesEquipoVisitante = (int)(Math.random() * + 6);
+        this.golesEquipoLocal =  (int)(Math.random() * + 6);
+    }
+
+//    public void golesArreglados(){
+//        Scanner input = new Scanner(in);
+//        this.golesEquipoVisitante = input.nextInt();
+//        this.golesEquipoLocal =  input.nextInt();
+//    }
+
 
 
 }

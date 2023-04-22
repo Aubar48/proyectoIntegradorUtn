@@ -39,12 +39,12 @@ public class Jugador {
     }
     // CREO SUS METODOS
     public void elegirEquipo(List<Equipo> listaEquipos){
-        JOptionPane.showMessageDialog(null,"Selecione su equipo","Seleccion de equipo", JOptionPane.INFORMATION_MESSAGE);
+
         String listaEquiposMensaje ="Equipos: \n";
         for (int i = 0; i < listaEquipos.size() ; i++) {
         listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
-            JOptionPane.showMessageDialog(null,listaEquiposMensaje,"Seleccion de equipo", JOptionPane.INFORMATION_MESSAGE);
     }
+
 //        for (Equipo equipo : listaEquipos) {
 //            System.out.println(listaEquipos.indexOf(equipo)+1 + " Nombre del equipo: " + equipo.getNombre());
 //
@@ -52,7 +52,7 @@ public class Jugador {
         int indiceEquipo=0;
         do {
             indiceEquipo = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    "Ingrese el indice del equipo que quiere seleccionar",
+                    listaEquiposMensaje,
                     "Seleccion del equipo del usuario", JOptionPane.INFORMATION_MESSAGE)) -1;
         }while (indiceEquipo<0 || indiceEquipo>7);
         JOptionPane.showMessageDialog(null,"seleccionaste a: " +
