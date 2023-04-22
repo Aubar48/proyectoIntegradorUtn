@@ -10,6 +10,8 @@ public class Partido {
     private int golesEquipoLocal;
 
     private int golesEquipoVisitante;
+
+
     // CREO SU CONSTRUCTOR VACIO
     public Partido() {
     }
@@ -42,10 +44,21 @@ public class Partido {
                 "golesEquipoVisitante=" + golesEquipoVisitante;
     }
 
+    public void golesRandom(){
+        this.golesEquipoVisitante = (int)(Math.random() * + 6);
+        this.golesEquipoLocal =  (int)(Math.random() * + 6);
+    }
+
+//    public void golesArreglados(){
+//        Scanner input = new Scanner(in);
+//        this.golesEquipoVisitante = input.nextInt();
+//        this.golesEquipoLocal =  input.nextInt();
+//    }
 
     public Equipo simularPartido(Equipo equipoLocal, Equipo equipoVisitante){
         int maxIntentos = 5;
         int intentos = 0;
+        boolean empate = false;
 
         do {
             // Generar goles aleatorios
@@ -66,10 +79,9 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoLocal;
             } else if (this.golesEquipoLocal == this.golesEquipoVisitante) {
-                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate, se jugara un nuevo partido para saber quien avanza. ","Resultado",
-                        JOptionPane.INFORMATION_MESSAGE);
-
-
+                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate. Se jugarán penales para definir al ganador."
+                        , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                empate = true;
             } else {
                 equipoLocal.setAutorizacion(false);
                 equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
@@ -78,27 +90,39 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoVisitante;
             }
-            if (golesEquipoLocal == golesEquipoVisitante){
 
+            // Si hubo empate, definir por penales
+            if (empate) {
+                int golesPenalesEquipoLocal = (int)(Math.random() * 11);
+                int golesPenalesEquipoVisitante = (int)(Math.random() * 11);
+
+                JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
+                                golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()
+                        , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+
+                if (golesPenalesEquipoLocal > golesPenalesEquipoVisitante) {
+                    equipoVisitante.setAutorizacion(false);
+                    equipoLocal.setResultadoPartido(Resultado.GANADOR);
+                    equipoVisitante.setResultadoPartido(Resultado.PERDEDOR);
+                    JOptionPane.showMessageDialog(null,"Ganador: " + equipoLocal.getNombre()
+                            , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                    return equipoLocal;
+                } else {
+                    equipoLocal.setAutorizacion(false);
+                    equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
+                    equipoVisitante.setResultadoPartido(Resultado.GANADOR);
+                    JOptionPane.showMessageDialog(null,"Ganador: " + equipoVisitante.getNombre()
+                            , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                    return equipoVisitante;
+                }
             }
+
             intentos++;
         } while (intentos < maxIntentos);
-        JOptionPane.showMessageDialog(null,"No se ha podido determinar un ganador después de " + maxIntentos + " intentos. ","Resultado",
-                JOptionPane.INFORMATION_MESSAGE);
+
+        JOptionPane.showMessageDialog(null,"No se ha podido determinar un ganador");
+
+
         return null;
-
     }
-    public void golesRandom(){
-        this.golesEquipoVisitante = (int)(Math.random() * + 6);
-        this.golesEquipoLocal =  (int)(Math.random() * + 6);
     }
-
-//    public void golesArreglados(){
-//        Scanner input = new Scanner(in);
-//        this.golesEquipoVisitante = input.nextInt();
-//        this.golesEquipoLocal =  input.nextInt();
-//    }
-
-
-
-}

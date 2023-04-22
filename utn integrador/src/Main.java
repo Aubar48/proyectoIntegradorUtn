@@ -57,6 +57,7 @@ public class Main {
                     JOptionPane.showMessageDialog(null,"Has conseguido " + jugador.getPuntaje()
                                     + " por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre()," Nombre",
                             JOptionPane.INFORMATION_MESSAGE);
+
                     break;
                 case 2:{
                     bucleFin = Integer.parseInt(JOptionPane.showInputDialog(null,
