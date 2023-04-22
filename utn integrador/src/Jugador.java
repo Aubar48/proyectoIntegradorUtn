@@ -38,27 +38,30 @@ public class Jugador {
                 '}';
     }
     // CREO SUS METODOS
+
     public void elegirEquipo(List<Equipo> listaEquipos){
 
         String listaEquiposMensaje ="Equipos: \n";
         for (int i = 0; i < listaEquipos.size() ; i++) {
-        listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
-    }
+            listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
+        }
 
-//        for (Equipo equipo : listaEquipos) {
-//            System.out.println(listaEquipos.indexOf(equipo)+1 + " Nombre del equipo: " + equipo.getNombre());
-//
-//        }
         int indiceEquipo=0;
+        boolean valido = false;
         do {
-            indiceEquipo = Integer.parseInt(JOptionPane.showInputDialog(null,
-                    listaEquiposMensaje,
-                    "Seleccion del equipo del usuario", JOptionPane.INFORMATION_MESSAGE)) -1;
-        }while (indiceEquipo<0 || indiceEquipo>7);
-        JOptionPane.showMessageDialog(null,"seleccionaste a: " +
-                listaEquipos.get(indiceEquipo).getNombre());
+            try {
+                indiceEquipo = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        listaEquiposMensaje,
+                        "Seleccion del equipo del usuario", JOptionPane.INFORMATION_MESSAGE)) -1;
+                valido = true;
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese un número entero válido.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } while (!valido || indiceEquipo < 0 || indiceEquipo >= listaEquipos.size());
+        JOptionPane.showMessageDialog(null,"seleccionaste a: " + listaEquipos.get(indiceEquipo).getNombre());
         this.equipoSeleccionado = listaEquipos.get(indiceEquipo);
     }
+
     public void sumarPuntos(){
 
         if (equipoSeleccionado.isAutorizacion()){
