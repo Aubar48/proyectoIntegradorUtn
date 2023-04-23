@@ -1,7 +1,3 @@
-import java.util.Scanner;
-
-import static java.lang.System.in;
-
 public class Equipo {
     //CREO LOS ATRIBUTOS PRIVADOS
     private String nombre;
@@ -69,7 +65,5 @@ public class Equipo {
     public  void sumarGolesNuevos(int nuevosGoles){
         this.cantGolesTorneo = nuevosGoles;
     }
-    Scanner input = new Scanner(in);
-
 
 }

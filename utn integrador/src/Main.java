@@ -1,21 +1,20 @@
 import javax.swing.*;
 import java.util.*;
 
-import static java.lang.System.in;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         int bucleFin = 0;
         mensajeTeam3();
         do {
             try {
                 int option = Integer.parseInt(JOptionPane.showInputDialog(null,
-                        "Somos lo que fuimos, y de nada sirve apostar por el futuro si no hemos echado cuentas con nuestro pasado. \n"+
-                                "“Suerte es lo que sucede cuando la preparación y la oportunidad se encuentran.»\n" +
-                                "– Séneca, filósofo romano"+
-                                "\n " +"Option 1: Iniciar pronostico"
-                                + "\n " + "Option 2: Salir",
+                        """
+                                Somos lo que fuimos, y de nada sirve apostar por el futuro si no hemos echado cuentas con nuestro pasado.\s
+                                “Suerte es lo que sucede cuando la preparación y la oportunidad se encuentran.»\s
+                                – Séneca, filósofo romano
+                                 Option 1: Iniciar pronostico
+                                 Option 2: Salir""",
                         "Menu Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE));
                 switch(option){
                     case 1:
@@ -85,12 +84,13 @@ public class Main {
 
     }
     public static void mensajeTeam3(){
-        JOptionPane.showMessageDialog(null, "Bienvenido al pronosticador deportivo 2023 - UTN Equipo 3" + "\n " +
-                "TEAM 1: Ezequiel Leon  ☺" + "\n " +
-                "TEAM 2: Nahuel Ezequiel Argandoña ☺ " + "\n " +
-                "TEAM 3: Matias Roberto ☺ " + "\n " +
-                "TEAM 4: Celeste Gimenez ☺ " + "\n " +
-                "TEAM 5: Santos Patricio augusto ☺ ","Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, """
+                Bienvenido al pronosticador deportivo 2023 - UTN Equipo 3
+                 TEAM 1: Ezequiel Leon  ☺
+                 TEAM 2: Nahuel Ezequiel Argandoña ☺\s
+                 TEAM 3: Matias Roberto ☺\s
+                 TEAM 4: Celeste Gimenez ☺\s
+                 TEAM 5: Santos Patricio augusto ☺\s""","Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE);
 
     }
 

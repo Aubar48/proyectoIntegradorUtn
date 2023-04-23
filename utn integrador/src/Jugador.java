@@ -41,8 +41,11 @@ public class Jugador {
 
     public void elegirEquipo(List<Equipo> listaEquipos){
 
-        String listaEquiposMensaje ="“En el juego, el pecado mortal es confundir una mala jugada con mala suerte.»\n" +
-                "– Ian Fleming, escritor inglés creador de James Bond \n" +"Equipos: ☺ \n";
+        String listaEquiposMensaje = """
+                “En el juego, el pecado mortal es confundir una mala jugada con mala suerte.»
+                – Ian Fleming, escritor inglés creador de James Bond\s
+                Equipos: ☺\s
+                """;
         for (int i = 0; i < listaEquipos.size() ; i++) {
             listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
         }

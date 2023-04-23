@@ -1,9 +1,5 @@
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-import static java.lang.System.in;
 
 public class Partido {
     //CREO LOS ATRIBUTOS PRIVADOS Y LOS INICIALIZO CON UN NUMERO ENTERO RANDOM PARA SIMULAR LOS GOLES DE LOS EQUIPOS DURANTE EL PARTIDO.
@@ -81,6 +77,8 @@ public class Partido {
             } else if (this.golesEquipoLocal == this.golesEquipoVisitante) {
                 JOptionPane.showMessageDialog(null,"El partido ha quedado en empate. Se jugarán penales para definir al ganador."
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                equipoLocal.setResultadoPartido(Resultado.EMPATE);
+                equipoVisitante.setResultadoPartido(Resultado.EMPATE);
                 empate = true;
             } else {
                 equipoLocal.setAutorizacion(false);

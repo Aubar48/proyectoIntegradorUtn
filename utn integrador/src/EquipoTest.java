@@ -1,44 +1,29 @@
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
-class EquipoTest {
+public class EquipoTest {
 
-    @org.junit.jupiter.api.Test
-    void getNombre() {
+    @Test
+    public void testSumarGolesNuevos() {
+        Equipo equipo = new Equipo("Equipo 1");
+        equipo.setCantGolesTorneo(5);
+        equipo.sumarGolesNuevos(3);
+        assertEquals(8, equipo.getCantGolesTorneo());
     }
 
-    @org.junit.jupiter.api.Test
-    void setNombre() {
+
+    @Test
+    public void testSetNombre() {
+        Equipo equipo = new Equipo();
+        equipo.setNombre("Equipo A");
+        assertEquals("Equipo A", equipo.getNombre());
     }
 
-    @org.junit.jupiter.api.Test
-    void isAutorizacion() {
+    @Test
+    public void testSetAndGetCantGolesTorneo() {
+        Equipo equipo = new Equipo();
+        equipo.setCantGolesTorneo(10);
+        assertEquals(10, equipo.getCantGolesTorneo());
     }
 
-    @org.junit.jupiter.api.Test
-    void setAutorizacion() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getResultadoPartido() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void setResultadoPartido() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void getCantGolesTorneo() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void setCantGolesTorneo() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void testToString() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void sumarGolesNuevos() {
-    }
 }
