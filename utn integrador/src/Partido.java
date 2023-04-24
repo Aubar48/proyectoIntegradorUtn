@@ -41,8 +41,8 @@ public class Partido {
     }
 
     public void golesRandom(){
-        this.golesEquipoVisitante = (int)(Math.random() * + 6);
-        this.golesEquipoLocal =  (int)(Math.random() * + 6);
+        this.golesEquipoVisitante = (int)(Math.random() * + 4);
+        this.golesEquipoLocal =  (int)(Math.random() * + 4);
     }
 
 //    public void golesArreglados(){
@@ -52,7 +52,7 @@ public class Partido {
 //    }
 
     public Equipo simularPartido(Equipo equipoLocal, Equipo equipoVisitante){
-        int maxIntentos = 5;
+        int maxIntentos = 1;
         int intentos = 0;
         boolean empate = false;
 
@@ -75,8 +75,8 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoLocal;
             } else if (this.golesEquipoLocal == this.golesEquipoVisitante) {
-                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate. Se jugarán penales para definir al ganador."
-                        , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+//                JOptionPane.showMessageDialog(null,"El partido ha quedado en empate. Se jugarán penales para definir al ganador."
+//                        , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 equipoLocal.setResultadoPartido(Resultado.EMPATE);
                 equipoVisitante.setResultadoPartido(Resultado.EMPATE);
                 empate = true;
@@ -88,32 +88,43 @@ public class Partido {
                         , "Resultado", JOptionPane.INFORMATION_MESSAGE);
                 return equipoVisitante;
             }
+            int maxIntentos2 = 6;
+            int intentos2 = 1;
 
             // Si hubo empate, definir por penales
-            if (empate) {
-                int golesPenalesEquipoLocal = (int)(Math.random() * 11);
-                int golesPenalesEquipoVisitante = (int)(Math.random() * 11);
+            do{
+                if (empate) {
+                    int golesPenalesEquipoLocal = (int)(Math.random() * 11);
+                    int golesPenalesEquipoVisitante = (int)(Math.random() * 11);
 
-                JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
-                                golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()
-                        , "Resultado", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
+                                    golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()
+                            , "Resultado de penales ronda " + intentos2, JOptionPane.INFORMATION_MESSAGE);
+                    if(golesPenalesEquipoLocal == golesPenalesEquipoVisitante){
+                        empate = true;
+                        JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
+                                        golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()
+                                , "Resultado de penales " + intentos2 , JOptionPane.INFORMATION_MESSAGE);
 
-                if (golesPenalesEquipoLocal > golesPenalesEquipoVisitante) {
-                    equipoVisitante.setAutorizacion(false);
-                    equipoLocal.setResultadoPartido(Resultado.GANADOR);
-                    equipoVisitante.setResultadoPartido(Resultado.PERDEDOR);
-                    JOptionPane.showMessageDialog(null,"Ganador: " + equipoLocal.getNombre()
-                            , "Resultado", JOptionPane.INFORMATION_MESSAGE);
-                    return equipoLocal;
-                } else {
-                    equipoLocal.setAutorizacion(false);
-                    equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
-                    equipoVisitante.setResultadoPartido(Resultado.GANADOR);
-                    JOptionPane.showMessageDialog(null,"Ganador: " + equipoVisitante.getNombre()
-                            , "Resultado", JOptionPane.INFORMATION_MESSAGE);
-                    return equipoVisitante;
+                    } else if (golesPenalesEquipoLocal > golesPenalesEquipoVisitante) {
+                        equipoVisitante.setAutorizacion(false);
+                        equipoLocal.setResultadoPartido(Resultado.GANADOR);
+                        equipoVisitante.setResultadoPartido(Resultado.PERDEDOR);
+                        JOptionPane.showMessageDialog(null,"Ganador: " + equipoLocal.getNombre()
+                                , "Resultado de penales", JOptionPane.INFORMATION_MESSAGE);
+                        return equipoLocal;
+                    } else {
+                        equipoLocal.setAutorizacion(false);
+                        equipoLocal.setResultadoPartido(Resultado.PERDEDOR);
+                        equipoVisitante.setResultadoPartido(Resultado.GANADOR);
+                        JOptionPane.showMessageDialog(null,"Ganador: " + equipoVisitante.getNombre()
+                                , "Resultado de penales", JOptionPane.INFORMATION_MESSAGE);
+                        return equipoVisitante;
+                    }
                 }
-            }
+                intentos2++;
+            }while (intentos2 < maxIntentos2);
+
 
             intentos++;
         } while (intentos < maxIntentos);

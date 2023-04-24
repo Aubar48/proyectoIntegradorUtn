@@ -22,22 +22,22 @@ public class Main {
                         List<Equipo> listaEquipos = new ArrayList<>();
                         // LLENO LA LISTA DE EQUIPOS CON SUS EQUIPOS
                         //LLAVE DERECHA
-                        listaEquipos.add(new Equipo("Uruguay ヅ "));
-                        listaEquipos.add(new Equipo("Venezuela ヅ "));
-                        listaEquipos.add(new Equipo("Francia ヅ "));
-                        listaEquipos.add(new Equipo("Portugal ヅ "));
+                        listaEquipos.add(new Equipo("Uruguay ヅ ","CONMEBOL, Campeon del mundo 1950"));
+                        listaEquipos.add(new Equipo("Inglaterraヅ ","UEFA, Campeon del mundo 1966"));
+                        listaEquipos.add(new Equipo("Francia ヅ ","UEFA, Campeon del mundo 2018"));
+                        listaEquipos.add(new Equipo("España ヅ ","UEFA, Campeon del mundo 2010"));
                         // LLAVE IZQUIERDA
-                        listaEquipos.add(new Equipo("Brasil ヅ "));
-                        listaEquipos.add(new Equipo("Mexico ヅ "));
-                        listaEquipos.add(new Equipo("Alemania ヅ "));
-                        listaEquipos.add(new Equipo("Argentina ヅ "));
+                        listaEquipos.add(new Equipo("Brasil ヅ ","CONMEBOL, Campeon del mundo 2002"));
+                        listaEquipos.add(new Equipo("Italia ヅ ","EUFA, Campeon del mundo 2006"));
+                        listaEquipos.add(new Equipo("Alemania ヅ ", "UEFA, Campeon del mundo 2014"));
+                        listaEquipos.add(new Equipo("Argentina ヅ ", "CONMEBOL, Campeon del mundo 2022"));
 
                         // LLAMO AL OBJETO JUGADOR Y AL METODO ELEGIR EQUIPO Y LE CARGO LA LISTA DE EQUIPOS ANTERIORMENTE CREADA.
                         Jugador jugador = new Jugador();
                         jugador.elegirEquipo(listaEquipos);
 
                         //metodo util java collections para cambiar dos valores de una lista por su indice
-                        //Collections.swap(listaEquipos, 7, 3);
+//                        Collections.swap(listaEquipos, 7, 3);
                         //metodo remover de la lista un equipo por consola
                         //listaEquipos.remove(input.nextInt());
 
@@ -47,6 +47,7 @@ public class Main {
                         // LE DOY EL VALOR POR PARAMETRO INICIAL DEL INDICE ALAS LLAVES > DESDE / HASTA <.
                         llaveDerecha.armarLlaves(listaEquipos, 0);
                         llaveIzquierda.armarLlaves(listaEquipos, 4);
+
                         // CREO EL OBJETO RONDA Y POR PARAMENTROS INGRESO LAS LLAVES CREADAS ANTERIORMENTE E INICIALIZADAS POR PARAMETROS
                         Ronda ronda = new Ronda();
                         ronda.cuartosFinal(llaveIzquierda,llaveDerecha);
@@ -61,14 +62,15 @@ public class Main {
                                         "– George Bernard Shaw, dramaturgo irlandés \n"+
                                         "Muchas gracias por ocupar el pronosticador deportivo \n "+
                                         "Has conseguido " + jugador.getPuntaje()
-                                        + " puntos, por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
+                                        + " puntos, por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre() + jugador.getEquipoSeleccionado().getDescripcion(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
                                 JOptionPane.INFORMATION_MESSAGE);
+
 
                         break;
                     case 2:{
                         bucleFin = Integer.parseInt(JOptionPane.showInputDialog(null,
                                 "Ingrese el valor numerico 2 si desea salir",
-                                "Menu para salir", JOptionPane.INFORMATION_MESSAGE));
+                                "Menu para salir", JOptionPane.QUESTION_MESSAGE));
                         break;
                     }
                     default:

@@ -57,7 +57,7 @@ public class Ronda {
         Partido partido = new Partido();
         //Msj por pantalla de bienvenida de cuartos de final
         JOptionPane.showMessageDialog(null,"Se jugaran los cuartos de final",
-        "Cuartos",JOptionPane.INFORMATION_MESSAGE);
+        "Cuartos",JOptionPane.WARNING_MESSAGE);
         this.cantEquiposLlave = 4;
         for (int i = 0; i < cantEquiposLlave ; i+=2) {
             partido.simularPartido(llaveIzquierda.getEquiposListaLlave().get(i),
@@ -89,7 +89,7 @@ public class Ronda {
         this.numRonda = 2;
         Partido partido = new Partido();
         JOptionPane.showMessageDialog(null,"Se juega la semi final del torneo",
-                "Semi Final", JOptionPane.INFORMATION_MESSAGE);
+                "Semi Final", JOptionPane.WARNING_MESSAGE);
         partido.simularPartido(llaveIzquierda.getEquiposListaLlave().get(0),
                 llaveIzquierda.getEquiposListaLlave().get(1));
         partido.simularPartido(llaveDerecha.getEquiposListaLlave().get(0),
@@ -100,13 +100,13 @@ public class Ronda {
     public void finalTorneo(Llave llaveIzquierda, Llave llaveDerecha){
         this.numRonda = 3;
         JOptionPane.showMessageDialog(null,"Se juega la final señoras y señores del torneo",
-                "Final", JOptionPane.INFORMATION_MESSAGE);
+                "Final", JOptionPane.WARNING_MESSAGE);
         Partido partido = new Partido();
         Equipo equipo = partido.simularPartido(llaveDerecha.getEquiposListaLlave().get(0),
                 llaveIzquierda.getEquiposListaLlave().get(0));
         JOptionPane.showMessageDialog(null,"“Lo única que puedes saber sobre la suerte es que, tarde o temprano, cambia.»\n" +
                 "– Bret Harte, autor estadounidense \n"+
-                "El ganador del torneo es: " + equipo.getNombre(),"Ganador del torneo",JOptionPane.INFORMATION_MESSAGE);
+                "El ganador del torneo es: " + equipo.getNombre() + equipo.getDescripcion(),"Ganador del torneo 2023",JOptionPane.WARNING_MESSAGE);
     }
 
 

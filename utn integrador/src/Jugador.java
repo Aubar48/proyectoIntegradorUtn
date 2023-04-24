@@ -47,7 +47,7 @@ public class Jugador {
                 Equipos: ☺\s
                 """;
         for (int i = 0; i < listaEquipos.size() ; i++) {
-            listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + "\n ";
+            listaEquiposMensaje+=(i+1) + ". " + listaEquipos.get(i).getNombre() + listaEquipos.get(i).getDescripcion()+ "\n ";
         }
 
         int indiceEquipo=0;
@@ -56,13 +56,13 @@ public class Jugador {
             try {
                 indiceEquipo = Integer.parseInt(JOptionPane.showInputDialog(null,
                         listaEquiposMensaje,
-                        "Seleccion del equipo del usuario", JOptionPane.INFORMATION_MESSAGE)) -1;
+                        "Menu de seleccion de equipo del usuario", JOptionPane.QUESTION_MESSAGE)) -1;
                 valido = true;
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese un número entero válido del indice de la lista de equipos ❤", "ERROR MSJ", JOptionPane.ERROR_MESSAGE);
             }
         } while (!valido || indiceEquipo < 0 || indiceEquipo >= listaEquipos.size());
-        JOptionPane.showMessageDialog(null,"Seleccionaste a: " + listaEquipos.get(indiceEquipo).getNombre());
+        JOptionPane.showMessageDialog(null,"Seleccionaste a: " + listaEquipos.get(indiceEquipo).getNombre() + "\n " + "Buena suerte en tu eleccion", "Esta por iniciar el torneo", JOptionPane.WARNING_MESSAGE);
         this.equipoSeleccionado = listaEquipos.get(indiceEquipo);
     }
 
