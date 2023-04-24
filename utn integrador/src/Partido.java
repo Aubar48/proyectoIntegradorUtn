@@ -94,13 +94,15 @@ public class Partido {
             // Si hubo empate, definir por penales
             do{
                 if (empate) {
-                    int golesPenalesEquipoLocal = (int)(Math.random() * 11);
-                    int golesPenalesEquipoVisitante = (int)(Math.random() * 11);
+                    int golesPenalesEquipoLocal = (int)(Math.random() * 6 + golesEquipoLocal);
+                    int golesPenalesEquipoVisitante = (int)(Math.random() * 6 + golesEquipoVisitante);
 
                     JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
                                     golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()
                             , "Resultado de penales ronda " + intentos2, JOptionPane.INFORMATION_MESSAGE);
                     if(golesPenalesEquipoLocal == golesPenalesEquipoVisitante){
+                        int golesPenalesEquipoLocal2 = (int)(Math.random() * 1 + golesPenalesEquipoLocal);
+                        int golesPenalesEquipoVisitante2 = (int)(Math.random() * 1 + golesPenalesEquipoVisitante);
                         empate = true;
                         JOptionPane.showMessageDialog(null,"Resultado de los penales: " + equipoLocal.getNombre() + " " +
                                         golesPenalesEquipoLocal + " - " + golesPenalesEquipoVisitante + " " + equipoVisitante.getNombre()

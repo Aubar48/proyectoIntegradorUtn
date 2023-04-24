@@ -56,8 +56,9 @@ public class Ronda {
         //Instancio un objeto partido para usar su metodo
         Partido partido = new Partido();
         //Msj por pantalla de bienvenida de cuartos de final
-        JOptionPane.showMessageDialog(null,"Se jugaran los cuartos de final",
-        "Cuartos",JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null,"Se jugaran los cuartos de final, primero la llave izquierda, \n" +
+                        " los primeros dos seguidos de la llave derecha",
+        "Cuartos de final",JOptionPane.WARNING_MESSAGE);
         this.cantEquiposLlave = 4;
         for (int i = 0; i < cantEquiposLlave ; i+=2) {
             partido.simularPartido(llaveIzquierda.getEquiposListaLlave().get(i),

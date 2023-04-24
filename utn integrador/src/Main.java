@@ -9,12 +9,11 @@ public class Main {
         do {
             try {
                 int option = Integer.parseInt(JOptionPane.showInputDialog(null,
-                        """
-                                Somos lo que fuimos, y de nada sirve apostar por el futuro si no hemos echado cuentas con nuestro pasado.\s
-                                “Suerte es lo que sucede cuando la preparación y la oportunidad se encuentran.»\s
-                                – Séneca, filósofo romano
-                                 Option 1: Iniciar pronostico
-                                 Option 2: Salir""",
+                        "Somos lo que fuimos, y de nada sirve apostar por el futuro si no hemos echado cuentas con nuestro pasado. \n" +
+                        "“Suerte es lo que sucede cuando la preparación y la oportunidad se encuentran.» \n" +
+                        "– Séneca, filósofo romano\n" +
+                        " Option 1: Iniciar pronostico\n" +
+                        " Option 2: Salir",
                         "Menu Pronosticador deportivo 2023 - UTN ARGENTINA PROGRAMA 4.0 JAVA", JOptionPane.INFORMATION_MESSAGE));
                 switch(option){
                     case 1:
@@ -34,7 +33,9 @@ public class Main {
 
                         // LLAMO AL OBJETO JUGADOR Y AL METODO ELEGIR EQUIPO Y LE CARGO LA LISTA DE EQUIPOS ANTERIORMENTE CREADA.
                         Jugador jugador = new Jugador();
+                        Jugador nahuel = new Jugador();
                         jugador.elegirEquipo(listaEquipos);
+                        nahuel.elegirEquipo(listaEquipos);
 
                         //metodo util java collections para cambiar dos valores de una lista por su indice
 //                        Collections.swap(listaEquipos, 7, 3);
@@ -53,17 +54,33 @@ public class Main {
                         ronda.cuartosFinal(llaveIzquierda,llaveDerecha);
                         //LLAMO A JUGADOR CON SU METODO SUMAR PUNTOS EN CADA RONDA PARA SABER SI SUMA O NO PUNTO DEPENDIENDO LA VICTORIA DEL EQUIPO
                         jugador.sumarPuntos();
+                        nahuel.sumarPuntos();
                         ronda.semiFinal(llaveIzquierda,llaveDerecha);
                         jugador.sumarPuntos();
+                        nahuel.sumarPuntos();
                         ronda.finalTorneo(llaveIzquierda,llaveDerecha);
                         jugador.sumarPuntos();
+                        nahuel.sumarPuntos();
                         // AL FINAL DEJO UN MSJ QUE DICE EL PUNTAJE DEL EQUIPO SELECCIONADO
                         JOptionPane.showMessageDialog(null,"“En el juego, muchos deben perder para que pocos ganen.»\n" +
                                         "– George Bernard Shaw, dramaturgo irlandés \n"+
                                         "Muchas gracias por ocupar el pronosticador deportivo \n "+
                                         "Has conseguido " + jugador.getPuntaje()
-                                        + " puntos, por elegir al equipo: " + jugador.getEquipoSeleccionado().getNombre() + jugador.getEquipoSeleccionado().getDescripcion(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
+                                        + " puntos, por elegir al equipo uno: " + jugador.getEquipoSeleccionado().getNombre() + jugador.getEquipoSeleccionado().getDescripcion(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
                                 JOptionPane.INFORMATION_MESSAGE);
+
+                        JOptionPane.showMessageDialog(null,"“Retírate mientras estás a la cabeza. Todos los mejores apostadores lo hacen.»\n" +
+                                                           "– Baltasar Gracián y Morales, filósofo español\n"+
+                                                           "Muchas gracias por ocupar el pronosticador deportivo \n "+
+                                                           "Has conseguido " + nahuel.getPuntaje()
+                                                           + " puntos, por elegir al equipo dos: " + nahuel.getEquipoSeleccionado().getNombre() + nahuel.getEquipoSeleccionado().getDescripcion(),"PROGRAMA FINALIZADO - UTN ARGENTINA PROGRAMA 4.0 JAVA",
+                                JOptionPane.INFORMATION_MESSAGE);
+
+                        System.out.println(listaEquipos.toString());
+                        System.out.println(jugador.toString());
+                        System.out.println(llaveDerecha.toString());
+                        System.out.println(llaveIzquierda.toString());
+                        System.out.println(ronda.toString());
 
 
                         break;
